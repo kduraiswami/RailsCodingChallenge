@@ -11,24 +11,24 @@ describe Cuboid do
 		end
 
 		it "should have a length property" do 
-			(@cuboid_one.length).to eq(3)
+			expect(@cuboid_one.length).to eq(3)
 		end
 
 		it "should have a width property" do 
-			(@cuboid_one.width).to eq(3)
+			expect(@cuboid_one.width).to eq(3)
 		end
 
 		it "should have a height property" do 
-			(@cuboid_one.height).to eq(4)
+			expect(@cuboid_one.height).to eq(4)
 		end
 
 		it "should have a default origin at center" do 
-			(@cuboid_one.origin).to match_array([0,0,0])
+			expect(@cuboid_one.origin).to match_array([0,0,0])
 		end
 
 		it "should accept custom origin" do 
 			@cuboid_two = Cuboid.new(length: 3, width: 3, height: 4, origin: [3,3,3])
-			(@cuboid_two.origin).to match_array([3,3,3])
+			expect(@cuboid_two.origin).to match_array([3,3,3])
 		end
 
 		# it "should have eight verticies" do 
