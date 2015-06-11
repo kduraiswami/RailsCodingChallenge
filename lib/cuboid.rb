@@ -1,17 +1,22 @@
 
 class Cuboid
-  
-  #BEGIN public methods that should be your starting point
 
-  def move_to!(x, y, z)
-  end
-  
-  def vertices
-  end
-  
-  #returns true if the two cuboids intersect each other.  False otherwise.
-  def intersects?(other)
-  end
+	attr_accessor :length, :width, :height, :origin
+	
+	def initialize(dimensions={})
+		@length = dimensions.fetch(:length)
+		@width = dimensions.fetch(:width)
+		@height = dimensions.fetch(:height)
+		@origin = dimensions.fetch(:origin) {[0,0,0]}
+	end	
 
-  #END public methods that should be your starting point  
+	def vertices
+	end
+
+	def move_to!(x, y, z)
+	end
+
+	def intersects?(other)
+	end
+
 end
