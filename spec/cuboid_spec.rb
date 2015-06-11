@@ -122,12 +122,32 @@ describe Cuboid do
 			expect(@cuboid_mover.vertices[7]).to match_array([4,0,0])
 		end
 
-		it "changes the origin in the simple happy case" do
-			expect(@cuboid_mover.move_to!(1,2,3)).to be true
+		# it "changes the origin in the simple happy case" do
+		# 	expect(@cuboid_mover.move_to!(1,2,3)).to be true
+		# end
+	end
+
+	describe "does_not_intersect?" do
+
+		it "should return true for cuboids in separate places" do 
+			cuboid_one = Cuboid.new(length: 4, width: 4, height: 4)
+			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [8,8,8])  
+			expect(cuboid_one.does_not_intersect?(cuboid_two)).to be true
 		end
-	end    
-  
-  describe "intersects?" do
-  end
+
+		it "should return false for cuboids with one verticy touching" do 
+			cuboid_one = Cuboid.new(length: 4, width: 4, height: 4)
+			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [6,6,6])  
+			expect(cuboid_one.does_not_intersect?(cuboid_two)).to be false
+		end
+
+		it "should return false for cuboids with intersecting faces" do 
+			cuboid_one = Cuboid.new(length: 4, width: 4, height: 4)
+			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [4,4,4])  
+			expect(cuboid_one.does_not_intersect?(cuboid_two)).to be false
+		end
+
+
+	end
 
 end
