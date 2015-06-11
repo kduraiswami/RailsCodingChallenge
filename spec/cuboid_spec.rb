@@ -84,8 +84,42 @@ describe Cuboid do
 			@cuboid.move_to!(2,2,2)
 		end
 
-		it "should change the origin to (1,2,3)" do 
-			expect(@cuboid.origin).to eq([1,2,3])
+		it "should change the origin to (2,2,2)" do 
+			expect(@cuboid.origin).to eq([2,2,2])
+		end
+
+		#top face
+		it "should have a closest top left verticy of [0,0,4]" do
+			expect(@cuboid_vertices.vertices[0]).to match_array([0,0,4])
+		end
+
+		it "should have a furthest top left verticy of [0,4,4]" do
+			expect(@cuboid_vertices.vertices[1]).to match_array([0,4,4])
+		end
+
+		it "should have a furthest top right verticy of [4,4,4]" do
+			expect(@cuboid_vertices.vertices[2]).to match_array([4,4,4])
+		end
+
+		it "should have a closest top right verticy of [4,0,4]" do
+			expect(@cuboid_vertices.vertices[3]).to match_array([4,0,4])
+		end
+
+		#bottom face
+		it "should have a closest bottom left verticy of [0,0,0]" do
+			expect(@cuboid_vertices.vertices[4]).to match_array([0,0,0])
+		end
+
+		it "should have a furthest bottom left verticy of [0,4,0]" do
+			expect(@cuboid_vertices.vertices[5]).to match_array([0,4,0])
+		end
+
+		it "should have a furthest bottom right verticy of [4,4,0]" do
+			expect(@cuboid_vertices.vertices[6]).to match_array([4,4,0])
+		end
+
+		it "should have a closest bottom right verticy of [4,0,0]" do
+			expect(@cuboid_vertices.vertices[7]).to match_array([4,0,0])
 		end
 
 		it "changes the origin in the simple happy case" do
