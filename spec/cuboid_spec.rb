@@ -132,19 +132,19 @@ describe Cuboid do
 		it "should return true for cuboids in separate places" do 
 			cuboid_one = Cuboid.new(length: 4, width: 4, height: 4)
 			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [8,8,8])  
-			expect(cuboid_one.does_not_intersect?(cuboid_two)).to be true
+			expect(cuboid_one.does_not_intersect?(cuboid_two.vertices)).to be true
 		end
 
 		it "should return false for cuboids with one verticy touching" do 
 			cuboid_one = Cuboid.new(length: 4, width: 4, height: 4)
-			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [6,6,6])  
-			expect(cuboid_one.does_not_intersect?(cuboid_two)).to be false
+			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [4,4,4])  
+			expect(cuboid_one.does_not_intersect?(cuboid_two.vertices)).to be false
 		end
 
 		it "should return false for cuboids with intersecting faces" do 
 			cuboid_one = Cuboid.new(length: 4, width: 4, height: 4)
-			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [4,4,4])  
-			expect(cuboid_one.does_not_intersect?(cuboid_two)).to be false
+			cuboid_two = Cuboid.new(length: 4, width: 4, height: 4, origin: [2,2,2])  
+			expect(cuboid_one.does_not_intersect?(cuboid_two.vertices)).to be false
 		end
 
 
