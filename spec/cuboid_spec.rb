@@ -34,46 +34,46 @@ describe Cuboid do
 
 	end
 
-	describe "verticies" do 
+	describe "vertices" do 
 		before (:each) do
-			@cuboid_verticies = Cuboid.new(length: 4, width: 4, height: 4) 
+			@cuboid_vertices = Cuboid.new(length: 4, width: 4, height: 4) 
 		end
 
-		it "should have eight verticies" do 
-			expect(@cuboid_verticies.verticies.length).to eq(8)
+		it "should have eight vertices" do 
+			expect(@cuboid_vertices.vertices.length).to eq(8)
 		end
 		#top face
 		it "should have a closest top left verticy of [-2,-2,2]" do
-			expect(@cuboid_verticies.verticies[0]).to match_array([-2,-2,2])
+			expect(@cuboid_vertices.vertices[0]).to match_array([-2,-2,2])
 		end
 
 		it "should have a furthest top left verticy of [-2,2,2]" do
-			expect(@cuboid_verticies.verticies[1]).to match_array([-2,2,2])
+			expect(@cuboid_vertices.vertices[1]).to match_array([-2,2,2])
 		end
 
 		it "should have a furthest top right verticy of [2,2,2]" do
-			expect(@cuboid_verticies.verticies[2]).to match_array([2,2,2])
+			expect(@cuboid_vertices.vertices[2]).to match_array([2,2,2])
 		end
 
 		it "should have a closest top right verticy of [2,-2,2]" do
-			expect(@cuboid_verticies.verticies[3]).to match_array([2,-2,2])
+			expect(@cuboid_vertices.vertices[3]).to match_array([2,-2,2])
 		end
 
 		#bottom face
 		it "should have a closest bottom left verticy of [-2,-2,-2]" do
-			expect(@cuboid_verticies.verticies[4]).to match_array([-2,-2,-2])
+			expect(@cuboid_vertices.vertices[4]).to match_array([-2,-2,-2])
 		end
 
 		it "should have a furthest bottom left verticy of [-2,2,-2]" do
-			expect(@cuboid_verticies.verticies[5]).to match_array([-2,2,-2])
+			expect(@cuboid_vertices.vertices[5]).to match_array([-2,2,-2])
 		end
 
 		it "should have a furthest bottom right verticy of [2,2,-2]" do
-			expect(@cuboid_verticies.verticies[6]).to match_array([2,2,-2])
+			expect(@cuboid_vertices.vertices[6]).to match_array([2,2,-2])
 		end
 
 		it "should have a closest bottom right verticy of [2,-2,-2]" do
-			expect(@cuboid_verticies.verticies[7]).to match_array([2,-2,-2])
+			expect(@cuboid_vertices.vertices[7]).to match_array([2,-2,-2])
 		end
 	end
 
