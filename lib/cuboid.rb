@@ -19,6 +19,17 @@ class Cuboid
 		make_vertices
 	end
 
+
+	def does_not_intersect?(potential_conflict_vertices)
+		if compare_vertices(@vertices, potential_conflict_vertices)
+			true
+		else 
+			false 
+		end
+	end
+
+	private
+
 	def make_vertices
 		#starts from closest top left corner and goes around clockwise [x,y,z] coordinates
 		@vertices.insert(0, [(@width/-2)+@origin[0], (@length/-2)+@origin[1], (@height/2)+@origin[2]])
@@ -31,7 +42,7 @@ class Cuboid
 		@vertices.insert(6, [(@width/2)+@origin[0], (@length/2)+@origin[1], (@height/-2)+@origin[2]])
 		@vertices.insert(7, [(@width/2)+@origin[0], (@length/-2)+@origin[1], (@height/-2)+@origin[2]])
 	end
-
+	
 	def compare_vertices(vertices, potential_conflict_vertices)
 		#check if left face is to the left of conflict right face
 		if vertices[0][0] <= potential_conflict_vertices[3][0] && vertices[0][0] >= potential_conflict_vertices[0][0]
@@ -53,14 +64,6 @@ class Cuboid
 			false
 		else
 			true
-		end
-	end
-
-	def does_not_intersect?(potential_conflict_vertices)
-		if compare_vertices(@vertices, potential_conflict_vertices)
-			true
-		else 
-			false 
 		end
 	end
 
