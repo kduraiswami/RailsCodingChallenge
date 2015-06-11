@@ -26,6 +26,14 @@ class Cuboid
 	end
 
 	def move_to!(x, y, z)
+		@origin[0] = x
+		@origin[1] = y
+		@origin[2] = z
+		change_vertices
+	end
+
+	def change_vertices
+		
 	end
 
 	def intersects?(other)

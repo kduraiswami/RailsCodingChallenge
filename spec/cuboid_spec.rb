@@ -78,6 +78,16 @@ describe Cuboid do
 	end
 
 	describe "move_to" do
+
+		before (:each) do 
+			@cuboid_mover = Cuboid.new(length: 4, width: 4, height: 4) 
+			@cuboid.move_to!(2,2,2)
+		end
+
+		it "should change the origin to (1,2,3)" do 
+			expect(@cuboid.origin).to eq([1,2,3])
+		end
+
 		it "changes the origin in the simple happy case" do
 			expect(subject.move_to!(1,2,3)).to be true
 		end
